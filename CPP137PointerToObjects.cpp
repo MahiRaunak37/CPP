@@ -1,0 +1,47 @@
+//Pointer to objects
+#include <iostream>
+using namespace std;
+
+class item					//creating a class of item
+{
+ private:					//private part
+	int code;
+	float price;
+ public:
+	void getdata(int a, float b)
+	{
+	 code = a;
+	 price = b;
+	}
+
+	void show(void)
+	{
+	 cout<<"Code:- "<<code<<endl;
+	 cout<<"Price:- "<<price<<endl;
+	}
+};
+
+const int size = 2;		//creating a constant size of the list of item
+
+int main()
+{
+ item* p = new item[size];	//creating a pointer variable p  of class item 
+ item* d =p;			//creating a pointer variable d of pointer p
+ int x, i;
+ float y;
+ for(i=0;i<size;i++)
+ {
+  cout<<"Input Code and Price for item "<<i+1;
+  cin>>x>>y;
+  p->getdata(x,y);
+  p++;
+  }
+
+ for(i=0;i<size;i++)
+ {
+  cout<<"Item" <<i+1<<endl;
+  d->show();
+  d++;
+ }
+ return 0;
+}
